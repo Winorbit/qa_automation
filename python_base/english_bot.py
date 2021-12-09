@@ -19,11 +19,20 @@ english_sentences = [
 	"level": 2}
 ]
 
-user = {"username": "",
+user = {"username": "Kate",
 		"level": 2}
 
-input_word = ""
-
+input_word = "The"
+input_word=input_word.upper()
+message = ""
+for sentence in english_sentences:
+	if user["level"] == sentence["level"]:
+		if input_word in sentence.get("text").upper():
+			message = message+sentence.get("text")+"\n*****\n"
+if not message:
+	print("Sorry, go to hell.")
+else: 
+	print(message)
 
 
 
