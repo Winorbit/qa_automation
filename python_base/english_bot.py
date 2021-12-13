@@ -54,7 +54,7 @@ english_sentences_damaged = [
      "level": 2}
 ]
 user = {"username": "Sveta",
-        "level": 5}
+        "level": 1}
 
 input_word = input().upper()
 message = ""
@@ -69,4 +69,4 @@ for sentence in english_sentences_damaged:
 if not message:
 	print("Sorry, There are no sentences")
 else: 
-	print(user["username"] + ", Your sentence:\n" + message)  
+	print(user["username"] + ", Your sentence:" + "\n*****\n" + message)  
