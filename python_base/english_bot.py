@@ -18,7 +18,6 @@ english_sentences = [
     {"text": "I learned very early the difference between knowing the name of something and knowing something.",
      "level": 2}
 ]
-
 user = {"username": "Kate",
         "level": 2}
 
@@ -30,9 +29,9 @@ for sentence in english_sentences:
         if input_word in sentence.get("text").upper():
             message = message + sentence.get("text") + "\n*****\n"
 if not message:
-    print("Sorry, no sentences found.")
+    print("Sorry,There are no sentences.")
 else:
-    print(message)
+    print(user["username"] + ", Your sentence:\n" + message)
 
 ###############################################
 english_sentences_damaged = [
@@ -54,45 +53,20 @@ english_sentences_damaged = [
     {"text": "I learned very early the difference between knowing the name of something and knowing something.",
      "level": 2}
 ]
-user = {"username": "Darya", "level": 0}
+user = {"username": "Sveta",
+        "level": 5}
 
-input_word = "The"
-input_word = input_word.upper()
+input_word = input().upper()
 message = ""
 
 for sentence in english_sentences_damaged:
-    if type(sentence) == str:
-        continue
     if type(sentence) == dict:
-        filtered_sentences = (sentence.get("text"))
-        if user.get("level") == sentence.get("level"):
-            if input_word in filtered_sentences.upper():
-                message = message + filtered_sentences + "\n*****\n"
+        if type("level") != int:
+            sentence["level"] = int(sentence.get("level"))
+        if user.get("level") == sentence.get("level"): 
+            if input_word in sentence.get("text").upper():
+                message = message + sentence.get("text")+"\n*****\n"
 if not message:
-    print("Sorry, no sentences found.")
-else:
-    print(message)
-
-# Вариант для level инвалид
-
-user = {"username": "Darya", "level": 4}
-
-input_word = "the"
-input_word = input_word.upper()
-message = ""
-
-for sentence in english_sentences_damaged:
-    if type(sentence) == str:
-        continue
-    if type(sentence) == dict:
-        filtered_sentences = (sentence.get("text"))
-        level = sentence.get("level")
-        if type(level) != int:
-            level = int(level)
-            if user.get("level") == level:
-                if input_word in filtered_sentences.upper():
-                    message = message + filtered_sentences + "\n*****\n"
-if not message:
-    print("Sorry, no sentences found.")
-else:
-    print(message)
+	print("Sorry, There are no sentences")
+else: 
+	print(user["username"] + ", Your sentence:\n" + message)  
