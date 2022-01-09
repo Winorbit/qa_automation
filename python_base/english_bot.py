@@ -35,8 +35,7 @@ else:
 
 ###############################################
 english_sentences_damaged = [
-    {"text": "When my time comes \n Forget the wrong that I’ve done.",
-     "level": 1},
+    {"text": "When my time comes \n Forget the wrong that I’ve done.", "level": 1},
     "In a hole in the ground there lived a hobbit.",
     {"text": "The sky the port was the color of television, tuned to a dead channel.",
      "level": "4"},
@@ -54,18 +53,18 @@ english_sentences_damaged = [
      "level": 2}
 ]
 user = {"username": "Sveta",
-        "level": 1}
+        "level": 2}
 
 input_word = input().upper()
 message = ""
 
 for sentence in english_sentences_damaged:
     if type(sentence) == dict:
-        if type("level") != int:
+        if sentence.get("level"):
             sentence["level"] = int(sentence.get("level"))
-        if user.get("level") == sentence.get("level"): 
-            if input_word in sentence.get("text").upper():
-                message = message + sentence.get("text")+"\n*****\n"
+            if user.get("level") == sentence.get("level"): 
+                if input_word in sentence.get("text").upper():
+                    message = message + sentence.get("text")+"\n*****\n"
 if not message:
 	print("Sorry, There are no sentences")
 else: 
